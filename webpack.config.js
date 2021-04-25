@@ -10,11 +10,11 @@ module.exports = {
   target: "node",
   devServer: {
     port: "9444",
-    contentBase: ["./public"],
+    contentBase: "./public",
     open: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json", ".css", "*"],
   },
   module: {
     rules: [
@@ -24,6 +24,10 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["css-loader"],
       },
     ],
   },
